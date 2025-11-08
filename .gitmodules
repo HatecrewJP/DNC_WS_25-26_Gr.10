@@ -7,3 +7,6 @@
 [submodule "src/networkmodel_converter"]
 	path = src/networkmodel_converter
 	url = https://github.com/NetCal/DNC_NetworkModel_converter.git
+[submodule "src/nc-org-dnc-backend"]
+	path = src/nc-org-dnc-backend
+	url = https://gitlab.ruhr-uni-bochum.de/dnet-rub-public/teaching/nc-org-dnc-backend.git
