@@ -91,13 +91,6 @@
 				</configuration>
 				<dependencies>
 					<dependency>
-						<groupId>ch.ethz.rtc.kernel</groupId>
-						<artifactId>rtc</artifactId>
-						<scope>system</scope>
-						<systemPath>${project.basedir}/lib/RTCToolbox/rtc/rtc.jar</systemPath>
-						<version>1.2.beta.100</version>
-					</dependency>
-					<dependency>
 						<groupId>org.junit.jupiter</groupId>
 						<artifactId>junit-jupiter-engine</artifactId>
 						<version>${junit.jupiter.version}</version>
@@ -149,7 +142,7 @@
 								<configuration>
 									<sources>
 										<source>src/functional_tests/java</source>
-										<source>src/mpa_ext/java</source>
+
 									</sources>
 								</configuration>
 							</execution>
@@ -171,76 +164,12 @@
 			</build>
 			<dependencies>
 				<dependency>
-					<groupId>ch.ethz.rtc.kernel</groupId>
-					<artifactId>rtc</artifactId>
-					<scope>system</scope>
-					<systemPath>${project.basedir}/lib/RTCToolbox/rtc/rtc.jar</systemPath>
-				</dependency>
-				<dependency>
 					<groupId>org.junit.jupiter</groupId>
 					<artifactId>junit-jupiter-params</artifactId>
 				</dependency>
 			</dependencies>
 		</profile>
 
-		<profile>
-			<!-- Classes and sources of the extension functionality (no tests, no 
-				experiments) (we should decide whether to use the core as dep. from the maven 
-				repo or add it as classes to the jar) -->
-			<id>mpa</id>
-			<build>
-				<finalName>NetCal-DNC-${project.version}</finalName>
-				<plugins>
-					<!-- get the RTC MPA jar -->
-					<plugin>
-						<groupId>com.googlecode.maven-download-plugin</groupId>
-						<artifactId>download-maven-plugin</artifactId>
-						<version>${maven.download.plugin.version}</version>
-						<executions>
-							<execution>
-								<id>get-mpa-rtc</id>
-								<phase>validate</phase>
-								<goals>
-									<goal>wget</goal>
-								</goals>
-								<configuration>
-									<url>http://www.mpa.ethz.ch/downloads/RTCToolbox_bin.zip</url>
-									<unpack>true</unpack>
-									<outputDirectory>${project.basedir}/lib/</outputDirectory>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-					<plugin>
-						<groupId>org.codehaus.mojo</groupId>
-						<artifactId>build-helper-maven-plugin</artifactId>
-						<version>${maven.build-helper.plugin.version}</version>
-						<executions>
-							<execution>
-								<id>add-source</id>
-								<phase>generate-sources</phase>
-								<goals>
-									<goal>add-source</goal>
-								</goals>
-								<configuration>
-									<sources>
-										<source>src/mpa_ext</source>
-									</sources>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-			<dependencies>
-				<dependency>
-					<groupId>ch.ethz.rtc.kernel</groupId>
-					<artifactId>rtc</artifactId>
-					<scope>system</scope>
-					<systemPath>${project.basedir}/lib/RTCToolbox/rtc/rtc.jar</systemPath>
-				</dependency>
-			</dependencies>
-		</profile>
 
 		<profile>
 			<!-- classes and sources of the experiments functionality (no experiments) 
@@ -333,7 +262,7 @@
 									<sources>
 										<source>src/experiments/java</source>
 										<source>src/functional_tests/java</source>
-										<source>src/mpa_ext/java</source>
+
 										<!-- source>src/networkmodel_converter/java</source-->
 									</sources>
 								</configuration>
@@ -343,12 +272,6 @@
 				</plugins>
 			</build>
 			<dependencies>
-				<dependency>
-					<groupId>ch.ethz.rtc.kernel</groupId>
-					<artifactId>rtc</artifactId>
-					<scope>system</scope>
-					<systemPath>${project.basedir}/lib/RTCToolbox/rtc/rtc.jar</systemPath>
-				</dependency>
 				<dependency>
 					<groupId>org.junit.jupiter</groupId>
 					<artifactId>junit-jupiter-engine</artifactId>
@@ -371,13 +294,6 @@
 	<dependencyManagement>
 		<dependencies>
  			<!-- External RTC -->
-			<dependency>
-				<groupId>ch.ethz.rtc.kernel</groupId>
-				<artifactId>rtc</artifactId>
-				<scope>system</scope>
-				<systemPath>${project.basedir}/lib/RTCToolbox/rtc/rtc.jar</systemPath>
-				<version>1.2.beta.100</version>
-			</dependency>
 			<!-- JUnit -->
 			<dependency>
 				<groupId>org.junit.jupiter</groupId>

@@ -1,6 +1,3 @@
-[submodule "src/mpa_ext"]
-	path = src/mpa_ext
-	url = https://github.com/NetCal/DNCext_MPARTC.git
 [submodule "src/experiments"]
 	path = src/experiments
 	url = https://github.com/NetCal/DNC_experiments.git
